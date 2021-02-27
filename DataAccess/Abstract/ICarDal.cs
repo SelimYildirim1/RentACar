@@ -13,5 +13,9 @@ namespace DataAccess.Abstract
         List<Car> GetAll();
         List<Car> GetById();
 
+
+
+
+
     }
 }
