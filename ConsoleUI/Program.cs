@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Concrete;
+using DataAccess.EntityFramework;
+using System;
 
 namespace ConsoleUI
 {
@@ -6,7 +8,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            foreach (var car in carManager.GetAllByBrandId(2))
+            {
+                Console.WriteLine(car.Description);
+            }
         }
     }
 }

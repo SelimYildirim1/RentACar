@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entities.Concrete
 {
-  public  class Car
+  public  class Car:IEntity
     {
         public int Id { get; set; }
         public int BrandId { get; set; }
@@ -16,5 +17,6 @@ namespace Entities.Concrete
         public decimal DailyPrice { get; set; }
 
         public string Description { get; set; }
+        public string CarName { get; set; }
     }
 }
