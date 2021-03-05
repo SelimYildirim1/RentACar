@@ -29,6 +29,5 @@ namespace DataAccess.EntityFramework
                 return result.ToList();
             }
         }
-        
     }
 }

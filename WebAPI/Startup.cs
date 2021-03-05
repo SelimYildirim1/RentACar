@@ -31,8 +31,8 @@ namespace WebAPI
         {
             services.AddControllers();
             //biri ctor da ICarservice isterse ona carmanager new i ver
-            services.AddSingleton<ICarService, CarManager>();
-            services.AddSingleton<ICarDal, EfCarDal>(); 
+            //services.AddSingleton<ICarService, CarManager>();
+            //services.AddSingleton<ICarDal, EfCarDal>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
