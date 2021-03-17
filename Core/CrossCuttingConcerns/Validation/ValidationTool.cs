@@ -10,10 +10,10 @@ namespace Core.CrossCuttingConcerns.Validation
         public static void Validate(IValidator validator,object entity)
         {
             var context = new ValidationContext<object>(entity);
-            var result = validator.Validate(context);
-            if (!result.IsValid)
+            var result = validator.Validate(context);//gelen validatorun örneğin ProductValidator bunu doğrula
+            if (!result.IsValid)//doğrulamaya uymuyorsa
             {
-                throw new ValidationException(result.Errors);
+                throw new ValidationException(result.Errors);//hata fırlat
             }
         }
     }

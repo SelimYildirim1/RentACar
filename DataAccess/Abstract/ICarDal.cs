@@ -11,5 +11,7 @@ namespace DataAccess.Abstract
     {
         //dataaccess core u kullandığı için ona bağımldıır 
         List<CarDetailDto> GetCarDetails();
+
+       
     }
 }

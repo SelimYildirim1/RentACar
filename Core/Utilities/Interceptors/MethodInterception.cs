@@ -6,7 +6,7 @@ namespace Core.Utilities.Interceptors
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
         //  Invocation: business method
-        protected virtual void OnBefore(IInvocation invocation) { }
+        protected virtual void OnBefore(IInvocation invocation) { }//Invocation method demek yani add methodu gibi, OnBefore method dan önce çalış demek 
         protected virtual void OnAfter(IInvocation invocation) { }
         protected virtual void OnException(IInvocation invocation, System.Exception e) { }
         protected virtual void OnSuccess(IInvocation invocation) { }

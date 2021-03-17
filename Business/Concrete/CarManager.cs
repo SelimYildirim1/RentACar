@@ -19,9 +19,12 @@ namespace Business.Concrete
     {
         //business dataacces i kullandığı için da bağımlıdır
         ICarDal _carDal;
+        
+        
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
+            
         }
 
          [ValidationAspect(typeof(CarValidator))]
@@ -31,11 +34,18 @@ namespace Business.Concrete
             //if()
             //business code
             //validation
+           
 
             _carDal.Add(car);
 
             return new SuccessResult(Messages.CarAdded);
 
+        }
+
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessDataResult<Car>(Messages.CarDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -66,6 +76,12 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessDataResult<Car>(Messages.CarUpdated);
         }
     }
 

@@ -7,17 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]//-->ATTRIBUTE
+    [ApiController] //-->ATTRIBUTE
     public class CarsController : ControllerBase
     {
         ICarService _carService;
 
-        public CarsController(ICarService carService)//carmanager ın referansını tutabiliyor
+        public CarsController(ICarService carService) //carmanager ın referansını tutabiliyor
         {
             //constructor da erişim yok
             _carService = carService;
@@ -26,15 +27,17 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            
+
             var result = _carService.GetAll();
             if (result.Succes)
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
-            
+
         }
+
         [HttpGet("getbyid")]
         public IActionResult GetById(int carid)
         {
@@ -43,6 +46,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
 
@@ -54,9 +58,46 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
 
-        //[HttpPost] post güncelleme ve silme içinde kullanılabilir
+        [HttpDelete("delete")]
+        public IActionResult Delete(Car car)
+        {
+            var result = _carService.Delete(car);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Car car)
+        {
+            var result = _carService.Update(car);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbrandid")]
+        public IActionResult GetBrandId(int id)
+        {
+            var result = _carService.GetAllByBrandId(id);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+        
     }
 }
+

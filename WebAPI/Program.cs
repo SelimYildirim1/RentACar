@@ -24,7 +24,7 @@ namespace WebAPI
             .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureContainer<ContainerBuilder>(builder =>
             {
-                builder.RegisterModule(new AutofacBusinessModule());
+                builder.RegisterModule(new AutofacBusinessModule());///ben .net core deðilde IoC Container olarak Autofac ý kullanýcam
             })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

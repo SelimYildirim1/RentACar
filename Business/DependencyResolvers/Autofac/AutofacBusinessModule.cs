@@ -17,16 +17,17 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();
-            builder.RegisterType<EfCarDal>().As<ICarDal>().SingleInstance();
+            builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();//biri constructor da ICarService isterse ona ICarManager ver
+
+            builder.RegisterType<EfCarDal>().As<ICarDal>().SingleInstance();//biri senden constructurda ICarDal isterse ona EfCarDal ver
            
 
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();//çalıştığında devreye gir
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()
                 {
-                    Selector = new AspectInterceptorSelector()
+                    Selector = new AspectInterceptorSelector()//AspectInterceptorSelector ı çalıştır ,o da attribute ları okuyordu
                 }).SingleInstance();
         }
     }

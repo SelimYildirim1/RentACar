@@ -19,7 +19,7 @@ namespace Core.DataAccess.EntityFramework
             {
                 var addedEntity = rentACarContext.Entry(entity);
                 addedEntity.State = EntityState.Added;
-                rentACarContext.SaveChanges();
+                rentACarContext.SaveChanges();//id verirsen hata alırsın
             }
         }
 
