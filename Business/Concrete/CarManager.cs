@@ -30,10 +30,9 @@ namespace Business.Concrete
          [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            //IResult result = BusinessRules.Run(iş kuralları)
-            //if()
+           
             //business code
-            //validation
+            
            
 
             _carDal.Add(car);
